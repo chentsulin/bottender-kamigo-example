@@ -1,6 +1,6 @@
 # bottender-kamigo-example
 
-以 Bottender 實作的卡米狗範例
+以 [Bottender](https://github.com/Yoctol/bottender) 實作的卡米狗範例
 
 ## 支援的卡米狗指令
 
