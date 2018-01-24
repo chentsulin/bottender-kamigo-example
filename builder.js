@@ -10,13 +10,14 @@ module.exports = new LineHandler()
     // 學說話指令的程式碼
     const { text } = context.event;
 
+    // 斷開後第一個部分是「卡米狗學說話」，可以直接忽略它
     const [, key, val] = text.split(';');
 
     // 如果沒有教過就初始化
     if (!db.map[key]) db.map[key] = [];
 
-    console.log(context.session);
-
+    // 記錄到列表中
+    // 用 session.id 可以同時支援 user、room 跟 group
     db.map[key].push({
       sessionId: context.session.id,
       keyword: key,
@@ -29,7 +30,10 @@ module.exports = new LineHandler()
     // 忘記指令的程式碼
     const { text } = context.event;
 
+    // 斷開後第一個部分是「卡米狗忘記」，可以直接忽略它
     const [, key] = text.split(';');
+
+    // 只過濾掉這個 channel 所定義的
     db.map[key] = db.map[key].filter(
       mapping => mapping.sessionId !== context.session.id
     );
@@ -42,15 +46,16 @@ module.exports = new LineHandler()
 
     const mappings = db.map[text];
 
+    // 如果曾經有任何關於這個關鍵字的紀錄
     if (mappings && mappings.length > 0) {
-      // 以 sessionId 有沒有匹配切分成兩個陣列
-      const [channelMappings, globalMappings] = partition(mappings, {
+      // 以 sessionId 匹配與否切分成兩個陣列
+      const [localMappings, globalMappings] = partition(mappings, {
         sessionId: context.session.id,
       });
 
-      // 先取 channel 裡設定的最後一個，取不到才用 global 的
+      // 先取 local 設定的最後一個，取不到才用 global 的
       const answer = last(
-        channelMappings.length > 0 ? channelMappings : globalMappings
+        localMappings.length > 0 ? localMappings : globalMappings
       ).message;
 
       await context.replyText(answer);
