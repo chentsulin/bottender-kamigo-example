@@ -35,16 +35,16 @@
 ```
 bottender-kamigo-example/
   bin/
-	  start
-	node_modules/
-	bot.js
-	bottender.config.js
-	builder.js
+    start
+  node_modules/
+  bot.js
+  bottender.config.js
+  builder.js
   server.js
   package.json
   README.md
   yarn.lock
-	.env
+  .env
 ```
 
 檔案大致的職責分配：
