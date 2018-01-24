@@ -1,5 +1,7 @@
 # bottender-kamigo-example
 
+[![Deploy to now](https://deploy.now.sh/static/button.svg)](https://deploy.now.sh/?repo=https://github.com/chentsulin/bottender-kamigo-example&env=ACCESS_TOKEN&env=CHANNEL_SECRET)
+
 以 [Bottender](https://github.com/Yoctol/bottender) 實作的卡米狗範例
 
 ## 支援的卡米狗指令
