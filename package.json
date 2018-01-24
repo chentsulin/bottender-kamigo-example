@@ -1,0 +1,17 @@
+{
+  "name": "kamigo",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "nodemon bin/start",
+    "start": "node bin/start"
+  },
+  "dependencies": {
+    "bottender": "0.14.18",
+    "dotenv": "^4.0.0",
+    "lodash": "^4.17.4"
+  },
+  "devDependencies": {
+    "nodemon": "^1.14.11"
+  }
+}

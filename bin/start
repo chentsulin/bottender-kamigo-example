@@ -1,0 +1,15 @@
+#!/usr/bin/env node
+
+require('dotenv').config();
+
+const server = require('../server');
+
+const PORT = process.env.PORT || 5000;
+
+server.listen(PORT, err => {
+  if (err) {
+    console.error(err);
+  } else {
+    console.log(`server is listening on port ${PORT}\n`);
+  }
+});
