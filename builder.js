@@ -23,7 +23,7 @@ module.exports = new LineHandler()
       message: val,
     });
 
-    await context.sendText('好哦~好哦~*1');
+    await context.replyText('好哦~好哦~*1');
   })
   .onText(/^卡米狗忘記;([^;]+)$/, async context => {
     // 忘記指令的程式碼
@@ -34,7 +34,7 @@ module.exports = new LineHandler()
       mapping => mapping.sessionId !== context.session.id
     );
 
-    await context.sendText('好哦~好哦~*1');
+    await context.replyText('好哦~好哦~*1');
   })
   .onText(async context => {
     // 回話的程式碼
@@ -53,6 +53,6 @@ module.exports = new LineHandler()
         channelMappings.length > 0 ? channelMappings : globalMappings
       ).message;
 
-      await context.sendText(answer);
+      await context.replyText(answer);
     }
   });
