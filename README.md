@@ -63,7 +63,7 @@ yarn
 cp .env.sample .env
 ```
 
-然後再 `.env` 中編輯 `ACCESS_TOKEN` 以及 `CHANNEL_SECRET`。
+然後必須在 `.env` 中編輯 `ACCESS_TOKEN` 以及 `CHANNEL_SECRET`。
 
 ## NPM Scripts
 
